@@ -1,7 +1,6 @@
 package hello.hellospring3.MemberService;
 
 import hello.hellospring3.domain.Member;
-import hello.hellospring3.repository.MemberRepository;
 import hello.hellospring3.repository.MemoryMemberRepository;
 
 import java.util.List;
@@ -9,7 +8,11 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemoryMemberRepository memberRepository;
+    
+    public MemberService(MemoryMemberRepository memoryMemberRepository) {
+        this.memberRepository = memoryMemberRepository;
+    }
 
     /**
      * 회원가입
@@ -33,5 +36,9 @@ public class MemberService {
 
     public Optional<Member> findOne(Long memberId){
         return memberRepository.findById(memberId);
+    }
+    
+    public void clearStore() {
+        memberRepository.clearStore();
     }
 }
