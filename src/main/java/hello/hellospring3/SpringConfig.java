@@ -1,12 +1,11 @@
 package hello.hellospring3;
 
 import hello.hellospring3.MemberService.MemberService;
+import hello.hellospring3.aop.TimeTraceAop;
 import hello.hellospring3.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import javax.persistence.EntityManager;
 
 @Configuration
 public class SpringConfig {
@@ -35,5 +34,9 @@ public class SpringConfig {
 //        return new JdbcMemberRepository(dataSource);
 //        return new JdbcTemplateMemberRepository(dataSource);
 //        return new JpaMemberRepository(em);
+//    }
+//    @Bean
+//    public TimeTraceAop timeTraceAop() {
+//        return new TimeTraceAop();
 //    }
 }
